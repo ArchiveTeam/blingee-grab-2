@@ -8,6 +8,7 @@ local item_value = os.getenv('item_value')
 
 local downloaded = {}
 local addedtolist = {}
+local users = {}
 
 local title = nil
 
@@ -315,6 +316,28 @@ wget.callbacks.get_urls = function(file, url, is_css, iri)
       else
         table.insert(urls, { url=url })
         addedtolist[url] = true
+      end
+    end
+  end
+
+  if item_type == "10profiles" and string.match(url, "blingee%.com/badge/view/42/user/") then
+    while dtries < 50 do
+      html = read_file(file)
+      if html.status_code == 200 and html.text:
+        if string.match(html, '"/profile/[^"]+"') then
+          username = string.match(html, '"(/profile/[^"]+)"')
+          table.insert(users, username)
+          check("http://blingee.com"..username)
+          check("http://blingee.com"..username.."/statistics")
+          check("http://blingee.com"..username.."/circle".format(username))
+          check("http://blingee.com"..username.."/badges".format(username))
+          check("http://blingee.com"..username.."/comments".format(username))
+          io.stdout:write("Username is "..string.match(username, "/profile/(.+)")..".  \n")
+          io.stdout:flush()
+        else
+          io.stdout:write("Title: "..title..".  \n")
+          io.stdout:flush()
+        end
       end
     end
   end
