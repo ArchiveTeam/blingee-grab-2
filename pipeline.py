@@ -196,11 +196,15 @@ class WgetArgs(object):
         item['item_type'] = item_type
         item['item_value'] = item_value
         
-        assert item_type in ('100blingees')
+        assert item_type in ('100blingees', '10profiles')
         
         if item_type == '100blingees':
             suffixes = string.digits
             for url in ['http://blingee.com/blingee/view/{0}{1}{2}'.format(item_value, a, b) for a in suffixes for b in suffixes]:
+                wget_args.append(url)
+        if item_type == '10profiles':
+            suffixes = string.digits
+            for url in ['http://blingee.com/badge/view/42/user/{0}{1}'.format(item_value, a) for a in suffixes]:
                 wget_args.append(url)
         else:
             raise Exception('Unknown item')
@@ -276,4 +280,3 @@ pipeline = Pipeline(
         stats=ItemValue("stats")
     )
 )
-
