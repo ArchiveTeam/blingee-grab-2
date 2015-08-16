@@ -202,7 +202,7 @@ class WgetArgs(object):
             suffixes = string.digits
             for url in ['http://blingee.com/blingee/view/{0}{1}{2}'.format(item_value, a, b) for a in suffixes for b in suffixes]:
                 wget_args.append(url)
-        if item_type == '10profiles':
+        elif item_type == '10profiles':
             suffixes = string.digits
             for url in ['http://blingee.com/badge/view/42/user/{0}{1}'.format(item_value, a) for a in suffixes]:
                 wget_args.append(url)
