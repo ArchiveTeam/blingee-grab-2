@@ -322,21 +322,19 @@ wget.callbacks.get_urls = function(file, url, is_css, iri)
 
   if item_type == "10profiles" and string.match(url, "blingee%.com/badge/view/42/user/") then
     html = read_file(file)
-    if html.status_code == 200 and html.text:
-      if string.match(html, '"/profile/[^"]+"') then
-        username = string.match(html, '"(/profile/[^"]+)"')
-        table.insert(users, username)
-        check("http://blingee.com"..username)
-        check("http://blingee.com"..username.."/statistics")
-        check("http://blingee.com"..username.."/circle".format(username))
-        check("http://blingee.com"..username.."/badges".format(username))
-        check("http://blingee.com"..username.."/comments".format(username))
-        io.stdout:write("Username is "..string.match(username, "/profile/(.+)")..".  \n")
-        io.stdout:flush()
-      else
-        io.stdout:write("Title: "..title..".  \n")
-        io.stdout:flush()
-      end
+    if string.match(html, '"/profile/[^"]+"') then
+      username = string.match(html, '"(/profile/[^"]+)"')
+      table.insert(users, username)
+      check("http://blingee.com"..username)
+      check("http://blingee.com"..username.."/statistics")
+      check("http://blingee.com"..username.."/circle")
+      check("http://blingee.com"..username.."/badges")
+      check("http://blingee.com"..username.."/comments")
+      io.stdout:write("Username is "..string.match(username, "/profile/(.+)")..".  \n")
+      io.stdout:flush()
+    else
+      io.stdout:write("Skipping deleted/private profile. \n")
+      io.stdout:flush()
     end
   end
   
