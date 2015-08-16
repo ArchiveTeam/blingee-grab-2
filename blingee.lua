@@ -250,6 +250,10 @@ downloaded["http://blingee.com/images/web_ui/icon50_header_trophy.gif"] = true
 downloaded["http://blingee.com/images/web_ui/icon50_header_medal.gif"] = true
 downloaded["http://blingee.com/images/web_ui/ratings/star_rating.gif"] = true
 downloaded["http://blingee.com/account/login"] = true
+downloaded["http://cdn.gigya.com/wildfire/js/wfapiv2.js"] = true
+downloaded["http://blingee.com/images/web_ui/myspace.gif"] = true
+downloaded["http://blingee.com/images/web_ui/hi5.gif"] = true
+downloaded["http://pixel.quantserve.com/pixel/p-24j7Vl-p0r5bY.gif"] = true
 
 read_file = function(file)
   if file then
@@ -281,7 +285,7 @@ wget.callbacks.download_child_p = function(urlpos, parent, depth, start_url_pars
   end
   
   if (downloaded[url] ~= true or addedtolist[url] ~= true) then
-    if string.match(urlpos["url"]["host"], "blingee%.com") and string.match(url, "[^0-9]"..item_value.."[a-z0-9][a-z0-9]") and not (string.match(url, "[^0-9]"..item_value.."[a-z0-9][a-z0-9][a-z0-9]") or string.match(urlpos["url"]["host"], "scorecardresearch%.com") or string.match(urlpos["url"]["host"], "tumblr%.com") or string.match(urlpos["url"]["host"], "facebook%.com") or string.match(urlpos["url"]["host"], "pinterest%.com") or string.match(urlpos["url"]["host"], "nl%.blingee%.com") or string.match(urlpos["url"]["host"], "de%.blingee%.com") or string.match(urlpos["url"]["host"], "es%.blingee%.com") or string.match(urlpos["url"]["host"], "fr%.blingee%.com") or string.match(urlpos["url"]["host"], "it%.blingee%.com") or string.match(urlpos["url"]["host"], "pt%.blingee%.com") or string.match(urlpos["url"]["host"], "ru%.blingee%.com") or string.match(urlpos["url"]["host"], "ja%.blingee%.com") or string.match(urlpos["url"]["host"], "ko%.blingee%.com") or string.match(url, "lang=[a-z][a-z]")) and not (string.match(url, "scorecardresearch%.com")) then
+    if string.match(urlpos["url"]["host"], "blingee%.com") and string.match(url, "[^0-9]"..item_value.."[a-z0-9][a-z0-9]") and not (string.match(url, "[^0-9]"..item_value.."[a-z0-9][a-z0-9][a-z0-9]") or string.match(urlpos["url"]["host"], "scorecardresearch%.com") or string.match(urlpos["url"]["host"], "tumblr%.com") or string.match(urlpos["url"]["host"], "facebook%.com") or string.match(urlpos["url"]["host"], "pinterest%.com") or string.match(urlpos["url"]["host"], "nl%.blingee%.com") or string.match(urlpos["url"]["host"], "de%.blingee%.com") or string.match(urlpos["url"]["host"], "es%.blingee%.com") or string.match(urlpos["url"]["host"], "fr%.blingee%.com") or string.match(urlpos["url"]["host"], "it%.blingee%.com") or string.match(urlpos["url"]["host"], "pt%.blingee%.com") or string.match(urlpos["url"]["host"], "ru%.blingee%.com") or string.match(urlpos["url"]["host"], "ja%.blingee%.com") or string.match(urlpos["url"]["host"], "ko%.blingee%.com") or string.match(url, "lang=[a-z][a-z]")) and not (string.match(url, "scorecardresearch%.com") or string.match(url, "blingee%.com/rating/vote") or string.match(url, "blingee%.com/inappropriate_thing/vote") or string.match(url, "blingee%.com/facebook_connect/") or string.match(url, "blingee%.com/ecard/create") or string.match(url, "blingee%.com/blingee/email_friend/") or string.match(url, "blingee%.com/partner/") or string.match(url, "fb-host%.static%.blingee%.com")) then
       addedtolist[url] = true
       return true
     elseif html == 0 and not (string.match(url, "scorecardresearch%.com") or string.match(url, "%?%?%?") or string.match(url, "/images[0-9]+/content/") or string.match(url, "/images/content/")) then
@@ -303,7 +307,7 @@ wget.callbacks.get_urls = function(file, url, is_css, iri)
   end
  
   local function check(url)
-    if (downloaded[url] ~= true and addedtolist[url] ~= true) and ((string.match(url, "[^0-9]"..item_value.."[a-z0-9][a-z0-9]") and not (string.match(url, "[^0-9]"..item_value.."[a-z0-9][a-z0-9][a-z0-9]") or string.match(url, "tumblr%.com") or string.match(url, "facebook%.com") or string.match(url, "pinterest%.com") or string.match(url, "nl%.blingee%.com") or string.match(url, "de%.blingee%.com") or string.match(url, "es%.blingee%.com") or string.match(url, "fr%.blingee%.com") or string.match(url, "it%.blingee%.com") or string.match(url, "pt%.blingee%.com") or string.match(url, "ru%.blingee%.com") or string.match(url, "ja%.blingee%.com") or string.match(url, "ko%.blingee%.com") or string.match(url, "lang=[a-z][a-z]"))) or string.match(url, "https?://bln%.gs")) and not (string.match(url, "scorecardresearch%.com") or string.match(url, "/images[0-9]+/content/") or string.match(url, "/images/content/") or string.match(url, "%?%?%?")) then
+    if (downloaded[url] ~= true and addedtolist[url] ~= true) and ((string.match(url, "[^0-9]"..item_value.."[a-z0-9][a-z0-9]") and not (string.match(url, "[^0-9]"..item_value.."[a-z0-9][a-z0-9][a-z0-9]") or string.match(url, "tumblr%.com") or string.match(url, "facebook%.com") or string.match(url, "pinterest%.com") or string.match(url, "nl%.blingee%.com") or string.match(url, "de%.blingee%.com") or string.match(url, "es%.blingee%.com") or string.match(url, "fr%.blingee%.com") or string.match(url, "it%.blingee%.com") or string.match(url, "pt%.blingee%.com") or string.match(url, "ru%.blingee%.com") or string.match(url, "ja%.blingee%.com") or string.match(url, "ko%.blingee%.com") or string.match(url, "lang=[a-z][a-z]"))) or string.match(url, "https?://bln%.gs")) and not (string.match(url, "scorecardresearch%.com") or string.match(url, "/images[0-9]+/content/") or string.match(url, "/images/content/") or string.match(url, "%?%?%?") or string.match(url, "blingee%.com/rating/vote") or string.match(url, "blingee%.com/inappropriate_thing/vote") or string.match(url, "blingee%.com/facebook_connect/") or string.match(url, "blingee%.com/ecard/create") or string.match(url, "blingee%.com/blingee/email_friend/") or string.match(url, "blingee%.com/partner/") or string.match(url, "fb-host%.static%.blingee%.com")) then
       if string.match(url, "&amp;") then
         table.insert(urls, { url=string.gsub(url, "&amp;", "&") })
         addedtolist[url] = true
@@ -317,45 +321,45 @@ wget.callbacks.get_urls = function(file, url, is_css, iri)
   
   if string.match(string.match(url, "https?://([^/]+)/"), "blingee%.com") and string.match(url, "[^0-9]"..item_value.."[a-z0-9][a-z0-9]") and not string.match(url, "[^0-9]"..item_value.."[a-z0-9][a-z0-9][a-z0-9]") then
     html = read_file(file)
-    if string.match(url, "http://blingee%.com/blingee/view/525151[0-9][0-9]") and not string.match(url, "http://blingee%.com/blingee/view/525151[0-9][0-9].") then
-      title = string.match(html, '<h1>([^<]+)</h1>')
-      io.stdout:write("Title: "..title..".  \n")
-      io.stdout:flush()
-    end
-    for newurl in string.gmatch(html, '"og:image"%s+content="([^"]+)"') do
-      if (downloaded[newurl] ~= true and addedtolist[newurl] ~= true) then
-      io.stdout:write("	"..newurl..".  \n")
-      io.stdout:flush()
-        table.insert(urls, { url=newurl })
-        addedtolist[newurl] = true
-      end
-    end
+--    if string.match(url, "http://blingee%.com/blingee/view/525151[0-9][0-9]") and not string.match(url, "http://blingee%.com/blingee/view/525151[0-9][0-9].") then
+--      title = string.match(html, '<h1>([^<]+)</h1>')
+--      io.stdout:write("Title: "..title..".  \n")
+--      io.stdout:flush()
+--    end
+--    for newurl in string.gmatch(html, '"og:image"%s+content="([^"]+)"') do
+--      if (downloaded[newurl] ~= true and addedtolist[newurl] ~= true) then
+--      io.stdout:write("	"..newurl..".  \n")
+--      io.stdout:flush()
+--        table.insert(urls, { url=newurl })
+--        addedtolist[newurl] = true
+--      end
+--    end
     for newurl in string.gmatch(html, '"image_src"%s+href="([^"]+)"') do
-      if (downloaded[newurl] ~= true and addedtolist[newurl] ~= true) then
+      if (downloaded[newurl] ~= true and addedtolist[newurl] ~= true) and string.match(url, "http://blingee%.com/blingee/view/525151[0-9][0-9]") and not string.match(url, "http://blingee%.com/blingee/view/525151[0-9][0-9].") then
       io.stdout:write("	"..newurl..".  \n")
       io.stdout:flush()
-        table.insert(urls, { url=newurl })
+        table.insert(urls, { url=newurl.."?4" })
         addedtolist[newurl] = true
       end
     end
-    for newtitle, newurl in string.gmatch(html, 'title="([^"]+)"%s+src="([^"]+)"') do
-      if newtitle == title and (downloaded[newurl] ~= true and addedtolist[newurl] ~= true) then
-      io.stdout:write("	"..newtitle..".  \n")
-      io.stdout:write("	"..newurl..".  \n")
-      io.stdout:flush()
-        table.insert(urls, { url=newurl })
-        addedtolist[newurl] = true
-      end
-    end
-    for newurl, newtitle in string.gmatch(html, 'src="([^"]+)"%s+title="([^"]+)"') do
-      if newtitle == title and (downloaded[newurl] ~= true and addedtolist[newurl] ~= true) then
-      io.stdout:write("	"..newtitle..".  \n")
-      io.stdout:write("	"..newurl..".  \n")
-      io.stdout:flush()
-        table.insert(urls, { url=newurl })
-        addedtolist[newurl] = true
-      end
-    end
+--    for newtitle, newurl in string.gmatch(html, 'title="([^"]+)"%s+src="([^"]+)"') do
+--      if newtitle == title and (downloaded[newurl] ~= true and addedtolist[newurl] ~= true) then
+--      io.stdout:write("	"..newtitle..".  \n")
+--      io.stdout:write("	"..newurl..".  \n")
+--      io.stdout:flush()
+--        table.insert(urls, { url=newurl })
+--        addedtolist[newurl] = true
+--      end
+--    end
+--    for newurl, newtitle in string.gmatch(html, 'src="([^"]+)"%s+title="([^"]+)"') do
+--      if newtitle == title and (downloaded[newurl] ~= true and addedtolist[newurl] ~= true) then
+--      io.stdout:write("	"..newtitle..".  \n")
+--      io.stdout:write("	"..newurl..".  \n")
+--      io.stdout:flush()
+--        table.insert(urls, { url=newurl })
+--        addedtolist[newurl] = true
+--      end
+--    end
     for newurl in string.gmatch(html, '"(https?://[^"]+)"') do
       check(newurl)
     end
@@ -490,4 +494,3 @@ wget.callbacks.httploop_result = function(url, err, http_stat)
 
   return wget.actions.NOTHING
 end
-
